@@ -6,7 +6,7 @@ import app.card.model.card.CardVO;
 
 public interface CardDao {
 
-	public Long saveCard(CardVO card);
+	public void saveCard(CardVO card);
 
 	public void updateCard(CardVO card);
 	

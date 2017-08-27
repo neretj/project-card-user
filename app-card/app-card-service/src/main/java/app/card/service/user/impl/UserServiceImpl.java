@@ -64,8 +64,7 @@ public class UserServiceImpl implements UserService {
 		UserVO userVO = userConverter.toVO(userDto);
 		userVO.setIdRole(idRoleUser);
 
-		Long id = userDao.saveUser(userVO);
-		userVO.setIdUser(id);
+		userDao.saveUser(userVO);
 
 		userDto = userConverter.toDto(userVO);
 

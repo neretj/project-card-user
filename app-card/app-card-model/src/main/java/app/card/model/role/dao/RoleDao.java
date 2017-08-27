@@ -8,5 +8,5 @@ public interface RoleDao {
 	
 	public RoleVO getRoleByUserId(Long id);
 	
-	public Long saveRole(RoleVO roleVO);
+	public void saveRole(RoleVO roleVO);
 }

@@ -36,19 +36,17 @@ public class UserDaoImpl implements UserDao {
 		return user;
 	}
 
-	public Long saveUser(UserVO userVO) {
-		// insert
+	public void saveUser(UserVO userVO) {
+		
 		String sql = "INSERT INTO User (username, password, name, surname, id_role)" + " VALUES (?, ?, ?, ?, ?)";
 
-		int id = jdbcTemplate.update(sql, userVO.getUsername(), userVO.getPassword(), userVO.getName(), userVO.getUsername(),
+		jdbcTemplate.update(sql, userVO.getUsername(), userVO.getPassword(), userVO.getName(), userVO.getUsername(),
 				userVO.getIdRole());
 		
-		return new Long(id);
 	}
 
 	public void updateUser(UserVO userVO) {
 
-		// update
 		String sql = "UPDATE User SET password = ?, name = ?, surname = ?, id_role = ? WHERE username = ?";
 
 		jdbcTemplate.update(sql, userVO.getPassword(), userVO.getName(), userVO.getUsername(), userVO.getIdRole(),

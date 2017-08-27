@@ -37,8 +37,7 @@ public class CardServiceImpl implements CardService {
 			cardVO.setIdCard(card.getIdCard());
 			cardDao.updateCard(cardVO);
 		} else {
-			Long id = cardDao.saveCard(cardVO);
-			cardVO.setIdCard(id);
+			cardDao.saveCard(cardVO);
 		}
 
 		return cardConverter.toDto(cardVO);

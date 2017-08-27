@@ -51,13 +51,12 @@ public class RoleDaoImpl implements RoleDao {
 		return role;
 	}
 
-	public Long saveRole(RoleVO roleVO) {
-		// insert
+	public void saveRole(RoleVO roleVO) {
+
 		String sql = "INSERT INTO Role (name)" + " VALUES (?)";
 
-		int id = jdbcTemplate.update(sql, roleVO.getName());
+		jdbcTemplate.update(sql, roleVO.getName());
 		
-		return new Long(id);
 	}
 
 	public class DataMapper implements RowMapper<RoleVO> {

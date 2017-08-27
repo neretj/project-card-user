@@ -23,22 +23,25 @@ public class CardTest {
 	@Test
 	public void saveCardTest() throws ParseException {
 		
+		Long idUser = new Long(9);
+		Long numberCard = Long.valueOf("2342342424324242");
+		
 		CardVO card = new CardVO();
 		
 		card.setNameCard("Name Card Test");
 		
-		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-		Date date = format.parse("02/07/2019");
+		SimpleDateFormat format = new SimpleDateFormat("yy/MM");
+		Date date = format.parse("15/02");
 		
 		card.setExpiredDate(date);
 		
-		card.setNumberCard(new Long(342413423));
+		card.setNumberCard(numberCard);
 		
-		card.setIdUser(new Long(4));
+		card.setIdUser(idUser);
 		
 		try {
 			cardDao.saveCard(card);	
-			System.out.println("Card saved with id: " + card.getIdCard());
+			System.out.println("Card saved");
 			
 		} catch (Exception e) {
 			System.out.println("ERROR saving card " + e);

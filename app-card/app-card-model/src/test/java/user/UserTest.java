@@ -6,10 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import app.card.model.role.RoleVO;
-import app.card.model.role.dao.RoleDao;
 import app.card.model.user.UserVO;
 import app.card.model.user.dao.UserDao;
+import junit.framework.Assert;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring/spring-test-model.xml")
@@ -18,46 +17,33 @@ public class UserTest {
 	@Autowired
 	private UserDao userDao;
 	
-	@Autowired
-	private RoleDao roleDao;
-	
 	@Test
 	public void testSaveAndGet() {
 
 		try {
 			
-			RoleVO roleAdmin = new RoleVO();
-			roleAdmin.setName("admin");
-			
-			Long idAdminRole = roleDao.saveRole(roleAdmin);
-			
-			RoleVO roleUser= new RoleVO();
-			roleUser.setName("user");
-			
-			Long idUserRole = roleDao.saveRole(roleUser);
-			
 			UserVO user = new UserVO();
-			user.setUsername("nicoc");
+			user.setUsername("user01");
 			user.setPassword("123456");
-			user.setName("nico");
-			user.setSurname("campoy");
-			user.setIdRole(idUserRole);
+			user.setName("name");
+			user.setSurname("surname");
+			user.setIdRole(new Long(2));
 
 			userDao.saveUser(user);
 
-			user = userDao.getUserData("nicoc");
-			System.out.println("user " + user.getUsername());
+			user = userDao.getUserData("user01");
+			
+			Assert.assertNotNull(user);
 
-			user.setUsername("nereatj");
+			user.setUsername("userAdmin");
 			user.setPassword("123456");
-			user.setName("nerea");
-			user.setSurname("toral");			
-			user.setIdRole(idAdminRole);
+			user.setName("name");
+			user.setSurname("surname");			
+			user.setIdRole(new Long(1));
 			
 			userDao.saveUser(user);
 			
-			user = userDao.getUserData("nereatj");
-			System.out.println("user " + user.getUsername());
+			Assert.assertNotNull(user);
 
 		} catch (Exception e) {
 			System.out.println("ERROR " + e);

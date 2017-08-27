@@ -22,13 +22,12 @@ public class CardDaoImpl implements CardDao {
 		return jdbcTemplate;
 	}
 
-	public Long saveCard(CardVO card) {
+	public void saveCard(CardVO card) {
 		
 		String sql = "INSERT INTO Card (name_card, number_card, expire_date, id_user)" + " VALUES (?, ?, ?, ?)";
 
-		int id = jdbcTemplate.update(sql, card.getNameCard(), card.getNumberCard(), card.getExpiredDate(), card.getIdUser());
+		jdbcTemplate.update(sql, card.getNameCard(), card.getNumberCard(), card.getExpiredDate(), card.getIdUser());
 		
-		return new Long(id);
 	}
 
 	public void updateCard(CardVO card) {

@@ -65,7 +65,4 @@ public class UserVO {
 	public void setIdRole(Long idRole) {
 		this.idRole = idRole;
 	}
-
-	
-
 }
