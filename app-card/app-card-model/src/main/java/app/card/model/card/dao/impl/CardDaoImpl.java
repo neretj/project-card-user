@@ -13,6 +13,7 @@ import app.card.model.card.CardVO;
 import app.card.model.card.dao.CardDao;
 
 @Repository
+@Transactional(propagation = Propagation.MANDATORY)
 public class CardDaoImpl implements CardDao {
 
 	@Autowired
