@@ -25,6 +25,7 @@ import app.card.service.user.dto.converter.UserConverter;
 import app.card.service.util.ConstansConfig;
 
 @Service
+@Transactional(propagation = Propagation.REQUIRED)
 public class UserServiceImpl implements UserService {
 
 	@Autowired
