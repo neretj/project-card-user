@@ -13,6 +13,7 @@ import app.card.model.role.RoleVO;
 import app.card.model.role.dao.RoleDao;
 
 @Repository
+@Transactional(propagation = Propagation.MANDATORY)
 public class RoleDaoImpl implements RoleDao {
 
 	@Autowired
