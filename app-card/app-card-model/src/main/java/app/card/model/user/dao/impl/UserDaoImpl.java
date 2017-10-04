@@ -13,6 +13,7 @@ import app.card.model.user.UserVO;
 import app.card.model.user.dao.UserDao;
 
 @Repository
+@Transactional(propagation = Propagation.MANDATORY)
 public class UserDaoImpl implements UserDao {
 
 	@Autowired
