@@ -18,7 +18,6 @@ import app.card.model.user.UserVO;
 import app.card.model.user.dao.UserDao;
 
 @Service
-@Transactional(propagation = Propagation.REQUIRED)
 public class LoginServiceImpl implements UserDetailsService {
 
 	
