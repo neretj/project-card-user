@@ -15,6 +15,7 @@ import app.card.service.card.dto.CardDto;
 import app.card.service.card.dto.converter.CardConverter;
 
 @Service
+@Transactional(propagation = Propagation.REQUIRED)
 public class CardServiceImpl implements CardService {
 
 	@Autowired
